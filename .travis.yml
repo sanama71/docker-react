@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+brfore_install :
+    - docker build -t sanama71/docker-react -f Dockerfile.dev .
+
+script:
+ - dokcer run -e CI=true sanama71/docker-react npm run test --coverage
